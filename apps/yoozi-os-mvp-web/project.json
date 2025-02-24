@@ -27,8 +27,7 @@
           }
         ],
         "styles": [
-          "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
-          "apps/yoozi-os-mvp-web/src/styles.scss",
+          "apps/yoozi-os-mvp-web/src/styles/styles.scss",
           {
             "input": "apps/yoozi-os-mvp-web/src/styles/default.less",
             "bundleName": "default",
