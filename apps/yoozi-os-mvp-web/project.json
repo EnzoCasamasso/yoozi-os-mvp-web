@@ -1,0 +1,90 @@
+{
+  "name": "yoozi-os-mvp-web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "yz",
+  "sourceRoot": "apps/yoozi-os-mvp-web/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/yoozi-os-mvp-web",
+        "index": "apps/yoozi-os-mvp-web/src/index.html",
+        "browser": "apps/yoozi-os-mvp-web/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/yoozi-os-mvp-web/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/yoozi-os-mvp-web/public"
+          }
+        ],
+        "styles": ["apps/yoozi-os-mvp-web/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "yoozi-os-mvp-web:build:production"
+        },
+        "development": {
+          "buildTarget": "yoozi-os-mvp-web:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "yoozi-os-mvp-web:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/yoozi-os-mvp-web/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "yoozi-os-mvp-web:build",
+        "port": 4200,
+        "staticFilePath": "dist/apps/yoozi-os-mvp-web/browser",
+        "spa": true
+      }
+    }
+  }
+}
