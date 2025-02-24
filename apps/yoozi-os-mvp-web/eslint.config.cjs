@@ -1,10 +1,12 @@
 const nx = require('@nx/eslint-plugin');
 const baseConfig = require('../../eslint.config.cjs');
+const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
 
 module.exports = [
   ...baseConfig,
   ...nx.configs['flat/angular'],
   ...nx.configs['flat/angular-template'],
+  eslintPluginPrettierRecommended,
   {
     files: ['**/*.ts'],
     rules: {
