@@ -7,7 +7,13 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@shared/*": ["apps/yoozi-os-mvp-web/src/app/shared/*"],
+      "@core/*": ["apps/yoozi-os-mvp-web/src/app/core/*"],
+      "@widgets/*": ["apps/yoozi-os-mvp-web/src/app/widgets/*"],
+      "@domain/*": ["apps/yoozi-os-mvp-web/src/app/domain/*"],
+    }
   },
   "files": [],
   "include": [],
