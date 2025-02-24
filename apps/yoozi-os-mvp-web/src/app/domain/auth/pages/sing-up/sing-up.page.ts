@@ -6,4 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './sing-up.page.html',
   styleUrl: './sing-up.page.scss',
 })
-export class SingUpPage {}
+export default class SingUpPage {}

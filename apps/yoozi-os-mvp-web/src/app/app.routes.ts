@@ -1,30 +1,18 @@
 import { Route } from '@angular/router';
-import { AuthLayout } from '@core/layout/auth/auth.layout';
-import LoginPage from '@domain/auth/pages/login/login.page';
-import { SingUpPage } from '@domain/auth/pages/sing-up/sing-up.page';
 
 export const appRoutes: Route[] = [
   {
     path: 'auth',
-    component: AuthLayout,
+    loadComponent: () => import('@core/layout/auth/auth.layout').then(m => m.AuthLayout),
     children: [
       {
         path: '',
-        component: LoginPage,
+        loadChildren: () => import('@domain/auth/auth.routes').then(m => m.AUTH_ROUTES),
       },
       {
-        path: 'sing-up',
-        component: SingUpPage,
+        path: 'reset-password',
+        loadComponent: () => import('@core/pages/reset-password/reset-password.page'),
       },
     ],
-  },
-  {
-    path: '',
-    redirectTo: 'auth',
-    pathMatch: 'full',
-  },
-  {
-    path: '**',
-    redirectTo: 'auth',
   },
 ];
