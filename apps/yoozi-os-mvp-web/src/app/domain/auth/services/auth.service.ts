@@ -16,7 +16,7 @@ export class AuthService {
   async load() {
     const { data } = await this.supabase.auth.getSession();
     if (!data.session) {
-      await this.purgeAndRedirect();
+      // this.purgeAndRedirect();
       return;
     }
     this.currentUser.set(data.session.user as unknown as iUser);

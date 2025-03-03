@@ -1,5 +1,5 @@
 import { Component, inject, viewChild } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { InjectSupabase } from '@shared/functions/inject-supabase.function';
 import { eDynamicField } from '@widget/components/dynamic-form/dynamic-field.enum';

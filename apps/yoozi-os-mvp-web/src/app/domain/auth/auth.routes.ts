@@ -8,11 +8,6 @@ export const AUTH_ROUTES: Route[] = [
     canActivate: [isLoggedInGuard],
   },
   {
-    path: 'sing-up',
-    loadComponent: () => import('@domain/auth/pages/sing-up/sing-up.page'),
-    canActivate: [isLoggedInGuard],
-  },
-  {
     path: 'forgot-password',
     loadComponent: () => import('@domain/auth/pages/forgot-password/forgot-password.page'),
     canActivate: [isLoggedInGuard],

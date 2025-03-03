@@ -1,0 +1,11 @@
+<h2>Detalhes do administrador</h2>
+<span nz-typography nzType="secondary">Ultilizaremos os dados abaixo para criar sua conta no sistema.</span>
+
+<yz-dynamic-form [config]="formConfig" />
+
+<nz-flex nzGap="small" nzJustify="center">
+  <button nz-button nzType="primary" [routerLink]="['/subscription','company']">
+    Proxima etapa
+    <i nz-icon nzType="right"></i>
+  </button>
+</nz-flex>
