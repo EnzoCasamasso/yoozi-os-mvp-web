@@ -15,7 +15,7 @@ module.exports = [
         {
           type: 'element',
           prefix: 'yz',
-          style: '[kebab-case]',
+          style: 'kebab-case',
         },
       ],
       '@angular-eslint/component-selector': [

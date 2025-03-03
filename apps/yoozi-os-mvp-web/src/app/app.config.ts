@@ -9,6 +9,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideHttpClient } from '@angular/common/http';
 import { ThemeService } from '@shared/services/theme/theme.service';
 import { AuthService } from '@domain/auth/services/auth.service';
+import { provideNgxMask } from 'ngx-mask';
 
 registerLocaleData(pt);
 
@@ -20,6 +21,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(FormsModule),
     provideAnimationsAsync(),
     provideHttpClient(),
+    provideNgxMask(),
     provideAppInitializer(() => inject(ThemeService).loadTheme()),
     provideAppInitializer(() => inject(AuthService).load()),
   ],
