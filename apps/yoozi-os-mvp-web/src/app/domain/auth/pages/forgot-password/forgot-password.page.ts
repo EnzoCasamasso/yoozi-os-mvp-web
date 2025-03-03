@@ -28,21 +28,21 @@ export default class ForgotPasswordPage {
       name: 'email',
       type: {
         field: eDynamicField.INPUT,
-        typeField: 'email'
+        typeField: 'email',
       },
       validations: [Validators.required, Validators.email],
-      size: 26
-    }
-  ] 
+      size: 26,
+    },
+  ];
 
-  @ViewChild(DynamicFormComponent) dynamicForm?: DynamicFormComponent;
+  @ViewChild(DynamicFormComponent) dynamicForm!: DynamicFormComponent;
 
   async submit() {
     this.loadingService.start();
     const { email } = this.dynamicForm?.form.value;
     await this.supabase.auth.resetPasswordForEmail(email);
     this.notificationService.success('Email enviado', 'Verifique sua caixa de entrada');
-    this.dynamicForm?.form.reset();
+    this.dynamicForm.form.reset();
     this.loadingService.stop();
   }
 }

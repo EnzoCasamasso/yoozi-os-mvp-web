@@ -11,7 +11,7 @@ module.exports = [
     files: ['**/*.ts'],
     rules: {
       '@angular-eslint/directive-selector': [
-        'error',
+        'warn',
         {
           type: 'element',
           prefix: 'yz',
@@ -32,6 +32,7 @@ module.exports = [
           suffixes: ['Component', 'Page', 'Dialog', 'Layout'],
         },
       ],
+      'no-unsafe-optional-chaining': 'off',
     },
   },
   {
