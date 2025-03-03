@@ -3,5 +3,7 @@
     <nz-step></nz-step>
     <nz-step></nz-step>
   </nz-steps>
-  <router-outlet />
+  <form [formGroup]="subscriptionService.form" yzFormStorage="subscription-form">
+    <router-outlet />
+  </form>
 </nz-card>

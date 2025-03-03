@@ -1,5 +1,5 @@
 import { Validators } from '@angular/forms';
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, inject } from '@angular/core';
 import { DynamicFormComponent } from '@widget/components/dynamic-form/dynamic-form.component';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
@@ -8,14 +8,20 @@ import { iDynamicFormConfig } from '@widget/components/dynamic-form/dynamic-form
 import { RouterModule } from '@angular/router';
 import { eDynamicField } from '@widget/components/dynamic-form/dynamic-field.enum';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { debounceTime } from 'rxjs';
+import { SubscriptionService } from '@domain/subscription/services/subscription.service';
 
+@UntilDestroy()
 @Component({
   selector: 'yz-admin-details',
   imports: [DynamicFormComponent, NzTypographyModule, NzFlexModule, NzButtonModule, NzIconModule, RouterModule],
   templateUrl: './admin-details.component.html',
   styleUrl: './admin-details.component.scss',
 })
-export class AdminDetailsComponent {
+export class AdminDetailsComponent implements AfterViewInit {
+  protected subscriptionService = inject(SubscriptionService);
+
   formConfig: iDynamicFormConfig[] = [
     {
       label: 'Nome',
@@ -57,4 +63,15 @@ export class AdminDetailsComponent {
       size: 24,
     },
   ];
+
+  @ViewChild(DynamicFormComponent) dynamicForm!: DynamicFormComponent;
+
+  ngAfterViewInit(): void {
+    this.dynamicForm.form.statusChanges.pipe(untilDestroyed(this), debounceTime(300)).subscribe(() => {
+      const form = this.subscriptionService.getAdminForm();
+      form.patchValue(this.dynamicForm.form.getRawValue());
+    });
+
+    this.dynamicForm.form.patchValue(this.subscriptionService.getAdminForm().getRawValue());
+  }
 }
