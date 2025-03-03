@@ -1,4 +1,4 @@
-import { Component, inject, ViewChild } from '@angular/core';
+import { Component, inject, viewChild } from '@angular/core';
 import { FormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { InjectSupabase } from '@shared/functions/inject-supabase.function';
@@ -35,14 +35,14 @@ export default class ForgotPasswordPage {
     },
   ];
 
-  @ViewChild(DynamicFormComponent) dynamicForm!: DynamicFormComponent;
+  readonly dynamicForm = viewChild.required(DynamicFormComponent);
 
   async submit() {
     this.loadingService.start();
-    const { email } = this.dynamicForm?.form.value;
+    const { email } = this.dynamicForm().form.value;
     await this.supabase.auth.resetPasswordForEmail(email);
     this.notificationService.success('Email enviado', 'Verifique sua caixa de entrada');
-    this.dynamicForm.form.reset();
+    this.dynamicForm().form.reset();
     this.loadingService.stop();
   }
 }
