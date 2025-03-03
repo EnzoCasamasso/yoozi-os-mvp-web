@@ -13,9 +13,9 @@ module.exports = [
       '@angular-eslint/directive-selector': [
         'error',
         {
-          type: 'attribute',
+          type: 'element',
           prefix: 'yz',
-          style: 'camelCase',
+          style: '[kebab-case]',
         },
       ],
       '@angular-eslint/component-selector': [
