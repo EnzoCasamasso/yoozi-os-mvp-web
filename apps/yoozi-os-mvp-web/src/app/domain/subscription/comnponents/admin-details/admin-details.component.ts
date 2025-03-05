@@ -1,16 +1,18 @@
 import { Validators } from '@angular/forms';
 import { Component, AfterViewInit, ViewChild, inject } from '@angular/core';
-import { DynamicFormComponent } from '@widget/components/dynamic-form/dynamic-form.component';
-import { NzTypographyModule } from 'ng-zorro-antd/typography';
-import { NzFlexModule } from 'ng-zorro-antd/flex';
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import { iDynamicFormConfig } from '@widget/components/dynamic-form/dynamic-form-config.interface';
 import { RouterModule } from '@angular/router';
-import { eDynamicField } from '@widget/components/dynamic-form/dynamic-field.enum';
-import { NzIconModule } from 'ng-zorro-antd/icon';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { debounceTime } from 'rxjs';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+
+import { DynamicFormComponent } from '@widget/components/dynamic-form/dynamic-form.component';
+import { iDynamicFormConfig } from '@widget/components/dynamic-form/dynamic-form-config.interface';
+import { eDynamicField } from '@widget/components/dynamic-form/dynamic-field.enum';
 import { SubscriptionService } from '@domain/subscription/services/subscription.service';
+
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzFlexModule } from 'ng-zorro-antd/flex';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @UntilDestroy()
 @Component({
