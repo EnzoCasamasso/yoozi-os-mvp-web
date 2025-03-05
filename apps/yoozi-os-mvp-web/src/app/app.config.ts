@@ -10,6 +10,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { ThemeService } from '@shared/services/theme/theme.service';
 import { AuthService } from '@domain/auth/services/auth.service';
 import { provideNgxMask } from 'ngx-mask';
+import { provideNzIcons } from 'ng-zorro-antd/icon';
+import { EyeInvisibleOutline, EyeOutline } from '@ant-design/icons-angular/icons';
 
 registerLocaleData(pt);
 
@@ -24,5 +26,6 @@ export const appConfig: ApplicationConfig = {
     provideNgxMask(),
     provideAppInitializer(() => inject(ThemeService).loadTheme()),
     provideAppInitializer(() => inject(AuthService).load()),
+    provideNzIcons([EyeInvisibleOutline, EyeOutline]),
   ],
 };
