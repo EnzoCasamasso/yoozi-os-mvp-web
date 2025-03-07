@@ -13,11 +13,11 @@ export const SUBSCRIPTION_ROUTES: Route[] = [
     children: [
       {
         path: 'admin',
-        loadComponent: () => import('@domain/subscription/comnponents/admin-details/admin-details.component').then(c => c.AdminDetailsComponent),
+        loadComponent: () => import('@domain/subscription/components/admin-details/admin-details.component').then(c => c.AdminDetailsComponent),
       },
       {
         path: 'company',
-        loadComponent: () => import('@domain/subscription/comnponents/company-details/company-details.component').then(c => c.CompanyDetailsComponent),
+        loadComponent: () => import('@domain/subscription/components/company-details/company-details.component').then(c => c.CompanyDetailsComponent),
       },
     ],
   },

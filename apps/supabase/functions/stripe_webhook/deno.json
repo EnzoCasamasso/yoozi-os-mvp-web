@@ -1,7 +1,0 @@
-{
-  "imports": {},
-  "compilerOptions": {
-    "lib": ["ESNext", "deno.ns", "deno.unstable"],
-    "strict": true
-  }
-}
