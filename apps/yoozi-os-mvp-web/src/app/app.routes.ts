@@ -19,4 +19,18 @@ export const appRoutes: Route[] = [
     path: 'subscription',
     loadChildren: () => import('@domain/subscription/subscription.routes').then(m => m.SUBSCRIPTION_ROUTES),
   },
+  {
+    path: '',
+    loadComponent: () => import('@core/layout/main/main.layout').then(m => m.MainLayout),
+    children: [
+      {
+        path: 'products',
+        loadChildren: () => import('@domain/products/products.routes').then(m => m.PRODUCTS_ROUTES),
+      },
+      {
+        path: 'customers',
+        loadChildren: () => import('@domain/customers/customers.routes').then(m => m.CUSTOMERS_ROUTES),
+      },
+    ],
+  },
 ];

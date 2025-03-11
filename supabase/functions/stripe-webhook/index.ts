@@ -58,7 +58,7 @@ const relevantEvents = new Set([
   'customer.subscription.deleted',
 ]);
 
-console.log('Hello from Stripe Webhook!');
+// console.log('Hello from Stripe Webhook!');
 
 const upsertProductRecord = async (product: Stripe.Product) => {
   const productData = {
@@ -100,7 +100,7 @@ const upsertPriceRecord = async (price: Stripe.Price) => {
 };
 
 const subscriptionStatusChangedEvent = async (event: Stripe.Event) => {
-  const subscription = event.data.object as Stripe.Suvscription;
+  const subscription = event.data.object as Stripe.Subscription;
   const customerId = subscription.customer as string;
   const subscriptionId = subscription.id;
 
