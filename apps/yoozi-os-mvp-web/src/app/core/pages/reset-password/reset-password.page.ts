@@ -13,7 +13,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
   templateUrl: './reset-password.page.html',
   styleUrl: './reset-password.page.scss',
 })
-export default class ResetPasswordPage {
+export class ResetPasswordPage {
   private supabase = InjectSupabase();
   private router = inject(Router);
   private notificationService = inject(NzNotificationService);

@@ -4,12 +4,12 @@ import { isLoggedInGuard } from '@core/guards/is-logged-in/is-logged-in.guard';
 export const AUTH_ROUTES: Route[] = [
   {
     path: '',
-    loadComponent: () => import('@domain/auth/pages/login/login.page'),
+    loadComponent: () => import('@domain/auth/pages/login/login.page').then(m => m.LoginPage),
     canActivate: [isLoggedInGuard],
   },
   {
     path: 'forgot-password',
-    loadComponent: () => import('@domain/auth/pages/forgot-password/forgot-password.page'),
+    loadComponent: () => import('@domain/auth/pages/forgot-password/forgot-password.page').then(m => m.ForgotPasswordPage),
     canActivate: [isLoggedInGuard],
   },
 ];

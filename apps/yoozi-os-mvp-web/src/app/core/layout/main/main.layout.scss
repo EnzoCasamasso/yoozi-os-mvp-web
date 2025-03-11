@@ -1,0 +1,12 @@
+nz-layout {
+    height: 100vh;
+    display: flex;
+
+    nz-sider {
+        height: 100vh;
+    }
+
+    nz-content {
+        padding: 20px;
+    }
+}

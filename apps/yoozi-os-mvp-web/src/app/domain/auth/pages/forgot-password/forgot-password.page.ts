@@ -17,7 +17,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
   templateUrl: './forgot-password.page.html',
   styleUrl: './forgot-password.page.scss',
 })
-export default class ForgotPasswordPage {
+export class ForgotPasswordPage {
   private supabase = InjectSupabase();
   private notificationService = inject(NzNotificationService);
   protected loadingService = inject(LoadingService);

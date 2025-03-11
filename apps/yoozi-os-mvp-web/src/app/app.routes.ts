@@ -1,4 +1,6 @@
 import { Route } from '@angular/router';
+import { authGuard } from '@core/guards/auth/auth.guard';
+import { isLoggedInGuard } from '@core/guards/is-logged-in/is-logged-in.guard';
 
 export const appRoutes: Route[] = [
   {
@@ -11,7 +13,7 @@ export const appRoutes: Route[] = [
       },
       {
         path: 'reset-password',
-        loadComponent: () => import('@core/pages/reset-password/reset-password.page'),
+        loadComponent: () => import('@core/pages/reset-password/reset-password.page').then(m => m.ResetPasswordPage),
       },
     ],
   },
@@ -22,7 +24,13 @@ export const appRoutes: Route[] = [
   {
     path: '',
     loadComponent: () => import('@core/layout/main/main.layout').then(m => m.MainLayout),
+    canActivate: [authGuard],
     children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'products',
+      },
       {
         path: 'products',
         loadChildren: () => import('@domain/products/products.routes').then(m => m.PRODUCTS_ROUTES),
@@ -32,5 +40,10 @@ export const appRoutes: Route[] = [
         loadChildren: () => import('@domain/customers/customers.routes').then(m => m.CUSTOMERS_ROUTES),
       },
     ],
+  },
+  {
+    path: '**',
+    redirectTo: 'products',
+    pathMatch: 'full',
   },
 ];

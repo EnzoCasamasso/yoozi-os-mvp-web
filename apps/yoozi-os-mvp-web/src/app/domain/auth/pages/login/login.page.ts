@@ -16,7 +16,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
   templateUrl: './login.page.html',
   styleUrl: './login.page.scss',
 })
-export default class LoginPage {
+export class LoginPage {
   private supabase = InjectSupabase();
   private notificationService = inject(NzNotificationService);
   private router = inject(Router);

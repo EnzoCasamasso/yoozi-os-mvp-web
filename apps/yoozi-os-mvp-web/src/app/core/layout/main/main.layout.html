@@ -1,1 +1,19 @@
-<p>main works!</p>
+<nz-layout>
+  <nz-layout>
+    <nz-sider nzWidth="250px" nzTheme="dark" [nzBreakpoint]="'md'">
+      <ul nz-menu nzMode="inline">
+        <li nz-menu-item routerLink="/products" nzMatchRouter>
+          <nz-icon nzType="product" />
+          <span>Produtos</span>
+        </li>
+        <li nz-menu-item routerLink="/customers" nzMatchRouter>
+          <nz-icon nzType="user" />
+          <span>Clientes</span>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-content>
+      <router-outlet />
+    </nz-content>
+  </nz-layout>
+</nz-layout>
