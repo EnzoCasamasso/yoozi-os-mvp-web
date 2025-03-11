@@ -1,17 +1,25 @@
 <nz-layout>
+  <nz-sider nzWidth="250px" nzTheme="dark" [nzBreakpoint]="'md'" [(nzCollapsed)]="isCollapsed">
+    <div class="logo"></div>
+    <ul nz-menu nzMode="inline">
+      <li nz-menu-item routerLink="/products" nzMatchRouter>
+        <nz-icon nzType="product" />
+        <span>Produtos</span>
+      </li>
+      <li nz-menu-item routerLink="/customers" nzMatchRouter>
+        <nz-icon nzType="user" />
+        <span>Clientes</span>
+      </li>
+      <li nz-menu-item routerLink="/configurations" nzMatchRouter>
+        <nz-icon nzType="setting" />
+        <span>Configurações</span>
+      </li>
+    </ul>
+  </nz-sider>
   <nz-layout>
-    <nz-sider nzWidth="250px" nzTheme="dark" [nzBreakpoint]="'md'">
-      <ul nz-menu nzMode="inline">
-        <li nz-menu-item routerLink="/products" nzMatchRouter>
-          <nz-icon nzType="product" />
-          <span>Produtos</span>
-        </li>
-        <li nz-menu-item routerLink="/customers" nzMatchRouter>
-          <nz-icon nzType="user" />
-          <span>Clientes</span>
-        </li>
-      </ul>
-    </nz-sider>
+    <nz-header>
+      <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></span>
+    </nz-header>
     <nz-content>
       <router-outlet />
     </nz-content>

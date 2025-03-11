@@ -1,6 +1,5 @@
 import { Route } from '@angular/router';
 import { authGuard } from '@core/guards/auth/auth.guard';
-import { isLoggedInGuard } from '@core/guards/is-logged-in/is-logged-in.guard';
 
 export const appRoutes: Route[] = [
   {
@@ -38,6 +37,10 @@ export const appRoutes: Route[] = [
       {
         path: 'customers',
         loadChildren: () => import('@domain/customers/customers.routes').then(m => m.CUSTOMERS_ROUTES),
+      },
+      {
+        path: 'configurations',
+        loadChildren: () => import('@domain/configurations/configurations.routes').then(m => m.CONFIGURATIONS_ROUTES),
       },
     ],
   },

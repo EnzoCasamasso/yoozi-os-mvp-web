@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
@@ -12,4 +12,6 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
   templateUrl: './main.layout.html',
   styleUrl: './main.layout.scss',
 })
-export class MainLayout {}
+export class MainLayout {
+  isCollapsed = false;
+}

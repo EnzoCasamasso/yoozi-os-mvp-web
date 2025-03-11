@@ -10,8 +10,12 @@ export class AuthService {
   private supabase = InjectSupabase();
   private router = inject(Router);
 
-  currentUser = signal<iUser | null>(null);
-  isLoggedIn = signal<boolean>(false);
+  private currentUser = signal<iUser | null>(null);
+  private isLoggedInSignal = signal<boolean>(false);
+
+  get isLoggedIn(): boolean {
+    return this.isLoggedInSignal();
+  }
 
   async load() {
     const { data } = await this.supabase.auth.getSession();
@@ -20,7 +24,7 @@ export class AuthService {
       return;
     }
     this.currentUser.set(data.session.user as unknown as iUser);
-    this.isLoggedIn.set(true);
+    this.isLoggedInSignal.set(true);
     console.log('User loaded:', this.currentUser());
   }
 
