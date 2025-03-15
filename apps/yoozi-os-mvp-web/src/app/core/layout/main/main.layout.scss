@@ -1,6 +1,7 @@
 nz-layout {
     height: 100vh;
     display: flex;
+    overflow: hidden;
 
     nz-sider {
         height: 100vh;
@@ -13,7 +14,7 @@ nz-layout {
 
     nz-header {
         padding: 0;
-
+        
         .trigger {
             font-size: 18px;
             line-height: 64px;

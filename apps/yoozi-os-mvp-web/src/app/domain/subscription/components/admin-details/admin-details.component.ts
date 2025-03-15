@@ -1,5 +1,5 @@
 import { Validators } from '@angular/forms';
-import { Component, AfterViewInit, ViewChild, inject } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { debounceTime } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
@@ -13,6 +13,7 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { eSubscriptionStep } from '@domain/subscription/enums/subscription-step.enum';
 
 @UntilDestroy()
 @Component({
@@ -21,7 +22,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
   templateUrl: './admin-details.component.html',
   styleUrl: './admin-details.component.scss',
 })
-export class AdminDetailsComponent implements AfterViewInit {
+export class AdminDetailsComponent implements OnInit, AfterViewInit {
   protected subscriptionService = inject(SubscriptionService);
 
   formConfig: iDynamicFormConfig[] = [
@@ -65,6 +66,10 @@ export class AdminDetailsComponent implements AfterViewInit {
       size: 24,
     },
   ];
+
+  ngOnInit() {
+    this.subscriptionService.currentStep.set(eSubscriptionStep.ADMIN);
+  }
 
   @ViewChild(DynamicFormComponent) dynamicForm!: DynamicFormComponent;
 

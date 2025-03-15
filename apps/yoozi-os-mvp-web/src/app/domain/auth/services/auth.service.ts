@@ -10,7 +10,7 @@ export class AuthService {
   private supabase = InjectSupabase();
   private router = inject(Router);
 
-  private currentUser = signal<iUser | null>(null);
+  currentUser = signal<iUser | null>(null);
   private isLoggedInSignal = signal<boolean>(false);
 
   get isLoggedIn(): boolean {
@@ -31,5 +31,17 @@ export class AuthService {
   async purgeAndRedirect() {
     await this.supabase.auth.signOut();
     this.router.navigate(['/auth']);
+  }
+
+  async updateUser(data: Partial<iUser>, id?: string) {
+    const { data: user, error } = await this.supabase
+      .from('users')
+      .update(data)
+      .match({ id: id || this.currentUser()?.id })
+      .select('*')
+      .maybeSingle();
+
+    if (error) throw error;
+    this.currentUser.set(user as iUser);
   }
 }

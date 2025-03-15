@@ -1,6 +1,10 @@
+import { eUserStatus } from '../enums/user-status.enum';
+
 export interface iUser {
-  id: number;
+  id: string;
   fullname: string;
   email: string;
-  avatar: string;
+  phone: string;
+  avatar_url: string;
+  status: eUserStatus;
 }

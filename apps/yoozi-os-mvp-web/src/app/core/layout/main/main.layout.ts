@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 
 @Component({
   selector: 'yz-main',
-  imports: [NzLayoutModule, NzBreadCrumbModule, NzIconModule, NzMenuModule, RouterModule],
+  imports: [NzLayoutModule, NzBreadCrumbModule, NzIconModule, NzMenuModule, RouterModule, NzAvatarModule],
   templateUrl: './main.layout.html',
   styleUrl: './main.layout.scss',
 })
