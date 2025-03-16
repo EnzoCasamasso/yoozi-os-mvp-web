@@ -73,4 +73,8 @@ export class SelectPlanComponent implements OnInit, AfterViewInit {
     const planForm = this.subscriptionService.getPlanForm();
     planForm.get('price_id')?.setValue(priceId);
   }
+
+  submit() {
+    this.subscriptionService.submit();
+  }
 }
