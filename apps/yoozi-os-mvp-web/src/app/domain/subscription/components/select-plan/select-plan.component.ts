@@ -1,3 +1,4 @@
+import { ErrorMessages } from './../../../../widget/components/dynamic-form/form-errors';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -8,6 +9,7 @@ import { ProductsApi } from '@domain/subscription/apis/producs.api';
 import { LoadingService } from '@shared/services/loading/loading.service';
 import { iProduct } from '@domain/subscription/interfaces/product.interface';
 import { iPrice } from '@domain/subscription/interfaces/price.interface';
+import { eSubscriptionStep } from '@domain/subscription/enums/subscription-step.enum';
 
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
@@ -17,7 +19,6 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
-import { eSubscriptionStep } from '@domain/subscription/enums/subscription-step.enum';
 
 interface iProductWithPrice extends iProduct {
   price: iPrice | null;
@@ -33,6 +34,8 @@ export class SelectPlanComponent implements OnInit, AfterViewInit {
   private productsApi = inject(ProductsApi);
   private subscriptionService = inject(SubscriptionService);
   protected loadingService = inject(LoadingService);
+  protected isLoading = this.loadingService.loading();
+  protected isSubmitting = false;
 
   selectedPrice = '';
   products = signal<iProductWithPrice[]>([]);
@@ -74,7 +77,14 @@ export class SelectPlanComponent implements OnInit, AfterViewInit {
     planForm.get('price_id')?.setValue(priceId);
   }
 
-  submit() {
-    this.subscriptionService.submit();
+  async submit() {
+    this.isSubmitting = true;
+    try {
+      await this.subscriptionService.submit();
+    } catch (error) {
+      console.error('Erro ao criar conta:', error);
+    } finally {
+      this.isSubmitting = false;
+    }
   }
 }
