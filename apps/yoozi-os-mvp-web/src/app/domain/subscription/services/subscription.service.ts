@@ -31,8 +31,9 @@ export class SubscriptionService {
     }),
     company: new FormGroup({
       name: new FormControl<string | null>(null),
-      cnpj: new FormControl<string | null>(null),
+      cpf_cnpj: new FormControl<string | null>(null),
       zip_code: new FormControl<string | null>(null),
+      street: new FormControl<string | null>(null),
       address: new FormControl<string | null>(null),
       number: new FormControl<string | null>(null),
       complement: new FormControl<string | null>(null),
@@ -79,7 +80,7 @@ export class SubscriptionService {
     const payload = {
       email: email,
       password: password,
-      option: {
+      options: {
         data: {
           full_name: name,
         },
@@ -98,11 +99,11 @@ export class SubscriptionService {
 
   private async createCompany(companyForm: FormGroup) {
     const formValues = companyForm.getRawValue();
-    const { name, cnpj, zip_code, street, number, complement, neighborhood, city, state, country } = formValues;
+    const { name, cpf_cnpj, zip_code, street, number, complement, neighborhood, city, state, country } = formValues;
 
     const payload = {
       name,
-      cnpj,
+      cpf_cnpj,
       address: {
         zip_code,
         street,
@@ -136,6 +137,7 @@ export class SubscriptionService {
   private async createSubscription(company_id: string) {
     const { price_id } = this.getPlanForm().getRawValue();
     if (!price_id) throw new Error('O plano é obrigatório');
+    console.log('PRICE_ID', price_id);
 
     const user = this.authService.currentUser();
     if (!user) throw new Error('Usuário não encontrado');
@@ -151,6 +153,7 @@ export class SubscriptionService {
     const { data, error } = await this.supabase.functions.invoke('create_subscription', {
       body: JSON.stringify(payload),
     });
+    console.log('ERRO DA ASSINATURA', error);
     if (error) throw new Error('Erro ao cadastrar assinatura');
 
     return data;

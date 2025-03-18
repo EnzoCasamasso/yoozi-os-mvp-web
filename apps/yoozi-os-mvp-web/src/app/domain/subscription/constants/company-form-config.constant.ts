@@ -29,7 +29,7 @@ export const COMPANY_FORM_CONFIG = (): iDynamicFormConfig[] => {
     },
     {
       label: 'CPF/CNPJ',
-      name: 'cnpj',
+      name: 'cpf_cnpj',
       type: {
         field: eDynamicField.INPUT,
       },

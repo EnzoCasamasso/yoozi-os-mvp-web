@@ -1,5 +1,5 @@
 export const corsHeaders = (origin: string) => {
-  const allowedOrigins = ['http://localhost:4244'];
+  const allowedOrigins = ['http://localhost:4200'];
 
   return {
     'Access-Control-Allow-Origin': allowedOrigins.includes(origin) ? origin : 'null',

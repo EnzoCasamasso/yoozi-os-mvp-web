@@ -25,7 +25,6 @@ export class AuthService {
     }
     this.currentUser.set(data.session.user as unknown as iUser);
     this.isLoggedInSignal.set(true);
-    console.log('User loaded:', this.currentUser());
   }
 
   async purgeAndRedirect() {
@@ -43,5 +42,6 @@ export class AuthService {
 
     if (error) throw error;
     this.currentUser.set(user as iUser);
+    console.log(user);
   }
 }
