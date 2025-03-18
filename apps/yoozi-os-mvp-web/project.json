@@ -31,12 +31,12 @@
           {
             "input": "apps/yoozi-os-mvp-web/src/styles/default.less",
             "bundleName": "default",
-            "inject": true
+            "inject": false
           },
           {
             "input": "apps/yoozi-os-mvp-web/src/styles/dark.less",
             "bundleName": "dark",
-            "inject": true
+            "inject": false
           }
         ],
         "stylePreprocessorOptions": {

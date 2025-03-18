@@ -5,16 +5,17 @@ nz-layout {
 
     nz-sider {
         height: 100vh;
+        border-right: 1px solid var(--border-color);
 
-        .logo {
-            height: 32px;
-            margin: 16px;
+        ul {
+            border-right: none;
         }
     }
 
     nz-header {
         padding: 0;
-        
+        border-bottom: 1px solid var(--border-color);
+
         .trigger {
             font-size: 18px;
             line-height: 64px;
@@ -24,7 +25,7 @@ nz-layout {
           }
 
         .trigger:hover {
-            color: #1890ff;
+            color: var(--primary-color);
         }
     }
 

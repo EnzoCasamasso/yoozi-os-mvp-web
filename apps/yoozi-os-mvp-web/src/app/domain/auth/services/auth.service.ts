@@ -1,7 +1,7 @@
 import { inject, Injectable, signal } from '@angular/core';
+import { Router } from '@angular/router';
 import { iUser } from '../interfaces/user.interface';
 import { InjectSupabase } from '@shared/functions/inject-supabase.function';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +24,7 @@ export class AuthService {
       return;
     }
     this.currentUser.set(data.session.user as unknown as iUser);
+    console.log('user:', this.currentUser());
     this.isLoggedInSignal.set(true);
   }
 
