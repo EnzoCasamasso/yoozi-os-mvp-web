@@ -5,13 +5,23 @@
   <nz-layout>
     <nz-sider nzWidth="250px" nzTheme="dark" [nzBreakpoint]="'md'" [(nzCollapsed)]="isCollapsed">
       <ul nz-menu nzMode="inline">
-        <li nz-menu-item routerLink="/products" nzMatchRouter>
-          <nz-icon nzType="product" />
-          <span>Produtos</span>
+        <li nz-menu-item>
+          <nz-icon nzType="home" />
+          <span>Home</span>
         </li>
-        <li nz-menu-item routerLink="/customers" nzMatchRouter>
-          <nz-icon nzType="user" />
-          <span>Clientes</span>
+        <li nz-submenu nzTitle="Produtos" nzIcon="product">
+          <ul>
+            <li nz-menu-item routerLink="/products">Produtos</li>
+            <li nz-menu-item>Cadastrar produto</li>
+          </ul>
+        </li>
+        <li nz-submenu nzTitle="Clientes" nzIcon="user">
+          <ul>
+            <li nz-menu-item routerLink="/customers">Clientes</li>
+            <li nz-menu-item>Cadastrar cliente</li>
+          </ul>
+          <!-- <nz-icon nzType="user" />
+          <span>Clientes</span> -->
         </li>
         <li nz-menu-item routerLink="/configurations" nzMatchRouter>
           <nz-icon nzType="setting" />

@@ -3,15 +3,6 @@ nz-layout {
     display: flex;
     overflow: hidden;
 
-    nz-sider {
-        height: 100vh;
-        border-right: 1px solid var(--border-color);
-
-        ul {
-            border-right: none;
-        }
-    }
-
     nz-header {
         padding: 0;
         border-bottom: 1px solid var(--border-color);
@@ -29,7 +20,17 @@ nz-layout {
         }
     }
 
+    nz-sider {
+        height: 100vh;
+        border-right: 1px solid var(--border-color);
+
+        ul {
+            border-right: none;
+        }
+    }
+
     nz-content {
         padding: 20px;
+        background: var(--background-color);
     }
 }
