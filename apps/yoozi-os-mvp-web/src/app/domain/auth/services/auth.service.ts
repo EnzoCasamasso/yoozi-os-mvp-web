@@ -1,7 +1,8 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { iUser } from '../interfaces/user.interface';
 import { InjectSupabase } from '@shared/functions/inject-supabase.function';
+
+import { iUser } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,21 +12,16 @@ export class AuthService {
   private router = inject(Router);
 
   currentUser = signal<iUser | null>(null);
-  private isLoggedInSignal = signal<boolean>(false);
-
-  get isLoggedIn(): boolean {
-    return this.isLoggedInSignal();
-  }
+  isLoggedIn = signal<boolean>(false);
 
   async load() {
     const { data } = await this.supabase.auth.getSession();
     if (!data.session) {
-      // this.purgeAndRedirect();
       return;
     }
+
     this.currentUser.set(data.session.user as unknown as iUser);
-    console.log('user:', this.currentUser());
-    this.isLoggedInSignal.set(true);
+    this.isLoggedIn.set(true);
   }
 
   async purgeAndRedirect() {
@@ -43,6 +39,5 @@ export class AuthService {
 
     if (error) throw error;
     this.currentUser.set(user as iUser);
-    console.log(user);
   }
 }

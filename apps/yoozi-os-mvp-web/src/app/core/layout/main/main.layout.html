@@ -1,6 +1,11 @@
 <nz-layout>
   <nz-header>
-    <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></span>
+    <div>
+      <span class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="isCollapsed = !isCollapsed"></span>
+    </div>
+    <div class="company-avatar">
+      <nz-avatar nzSize="large" nzIcon="user"></nz-avatar>
+    </div>
   </nz-header>
   <nz-layout>
     <nz-sider nzWidth="250px" nzTheme="dark" [nzBreakpoint]="'md'" [(nzCollapsed)]="isCollapsed">
@@ -20,8 +25,6 @@
             <li nz-menu-item routerLink="/customers">Clientes</li>
             <li nz-menu-item>Cadastrar cliente</li>
           </ul>
-          <!-- <nz-icon nzType="user" />
-          <span>Clientes</span> -->
         </li>
         <li nz-menu-item routerLink="/configurations" nzMatchRouter>
           <nz-icon nzType="setting" />

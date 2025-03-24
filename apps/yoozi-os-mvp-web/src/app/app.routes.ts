@@ -3,6 +3,10 @@ import { authGuard } from '@core/guards/auth/auth.guard';
 
 export const appRoutes: Route[] = [
   {
+    path: 'subscription',
+    loadChildren: () => import('@domain/subscription/subscription.routes').then(m => m.SUBSCRIPTION_ROUTES),
+  },
+  {
     path: 'auth',
     loadComponent: () => import('@core/layout/auth/auth.layout').then(m => m.AuthLayout),
     children: [
@@ -17,13 +21,9 @@ export const appRoutes: Route[] = [
     ],
   },
   {
-    path: 'subscription',
-    loadChildren: () => import('@domain/subscription/subscription.routes').then(m => m.SUBSCRIPTION_ROUTES),
-  },
-  {
     path: '',
     loadComponent: () => import('@core/layout/main/main.layout').then(m => m.MainLayout),
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
     children: [
       {
         path: '',

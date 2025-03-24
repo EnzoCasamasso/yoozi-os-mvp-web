@@ -6,6 +6,9 @@ nz-layout {
     nz-header {
         padding: 0;
         border-bottom: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
         .trigger {
             font-size: 18px;
@@ -17,6 +20,10 @@ nz-layout {
 
         .trigger:hover {
             color: var(--primary-color);
+        }
+
+        .company-avatar {
+            margin-right: 15px;
         }
     }
 
