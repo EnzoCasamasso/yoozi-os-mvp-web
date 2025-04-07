@@ -1,5 +1,45 @@
-<nz-list nzItemLayout="vertical">
-  <yz-product-item />
-  <yz-product-item />
-  <yz-product-item />
-</nz-list>
+<div class="header" nz-flex nzAlign="center" nzJustify="space-between" nzGap="middle">
+  <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+    <input type="text" nz-input placeholder="input search text" />
+  </nz-input-group>
+  <ng-template #suffixIconButton>
+    <button nz-button nzType="primary" nzSearch><nz-icon nzType="search" /></button>
+  </ng-template>
+  <button nz-button nzType="primary" nzShape="round">
+    <i nz-icon nzType="plus"></i>
+    Adicionar produto
+  </button>
+</div>
+<yz-virtual-scroll [itemSize]="100">
+  <nz-list nzItemLayout="vertical">
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+    <yz-product-item />
+  </nz-list>
+</yz-virtual-scroll>
