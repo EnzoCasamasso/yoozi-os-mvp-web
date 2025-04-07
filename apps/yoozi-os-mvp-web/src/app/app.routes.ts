@@ -31,6 +31,10 @@ export const appRoutes: Route[] = [
         redirectTo: 'products',
       },
       {
+        path: 'home',
+        loadChildren: () => import('@domain/home/home.routes').then(m => m.HOME_ROUTES),
+      },
+      {
         path: 'products',
         loadChildren: () => import('@domain/products/products.routes').then(m => m.PRODUCTS_ROUTES),
       },
