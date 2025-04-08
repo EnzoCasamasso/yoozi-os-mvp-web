@@ -9,11 +9,38 @@ import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 @Component({
   selector: 'yz-products-list',
-  imports: [CommonModule, NzListModule, ProductItemComponent, NzFlexModule, NzInputModule, NzButtonModule, NzIconModule, VirtualScrollComponent],
+  imports: [
+    CommonModule,
+    NzListModule,
+    NzFormModule,
+    NzSelectModule,
+    ProductItemComponent,
+    NzFlexModule,
+    NzInputModule,
+    NzButtonModule,
+    NzIconModule,
+    VirtualScrollComponent,
+    NzDrawerModule,
+    NzDatePickerModule,
+  ],
   templateUrl: './products-list.page.html',
   styleUrl: './products-list.page.scss',
 })
-export class ProductsListPage {}
+export class ProductsListPage {
+  addProduct = false;
+
+  openAddProduct() {
+    this.addProduct = true;
+  }
+
+  closeAddProduct() {
+    this.addProduct = false;
+  }
+}

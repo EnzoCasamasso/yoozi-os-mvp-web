@@ -1,1 +1,19 @@
-<p>home works!</p>
+<div class="container">
+  <div class="registrations">
+    <span nz-typography nzType="secondary">Cadastros rápido</span>
+    <nz-flex [nzGap]="10">
+      <yz-button-card icon="user" label="Cliente" />
+      <yz-button-card icon="product" label="Produto" />
+      <yz-button-card icon="calendar" label="Agendar" />
+      <yz-button-card icon="form" label="Serviço" />
+    </nz-flex>
+  </div>
+  <nz-card nzTitle="Minha agenda" [nzExtra]="extraTemplate">
+    <nz-calendar [(ngModel)]="selectedValue" (nzSelectChange)="selectChange($event)" [nzFullscreen]="false"></nz-calendar>
+    <nz-alert nzMessage="Você selecionou a data: {{ selectedValue | date: 'dd/MM/yyyy' }}"></nz-alert>
+
+    <ng-template #extraTemplate>
+      <nz-icon nzType="calendar" nzTheme="outline"></nz-icon>
+    </ng-template>
+  </nz-card>
+</div>

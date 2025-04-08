@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, Input, numberAttribute } from '@angular/core';
 import { CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 import { CommonModule } from '@angular/common';
 
@@ -9,5 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './virtual-scroll.component.scss',
 })
 export class VirtualScrollComponent {
-  itemSize = input.required<number>();
+  @Input({ transform: numberAttribute }) itemSize!: number;
 }

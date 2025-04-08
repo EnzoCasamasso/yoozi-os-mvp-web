@@ -1,5 +1,8 @@
 .demo-infinite-container {
     height: 100%;
-    padding: none;
-    margin: none;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    display: block;
+    overflow: auto;
 }

@@ -1,0 +1,16 @@
+nz-card {
+    width: 80px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    nz-icon {
+        color: var(--primary-color);
+        font-size: 18px;
+    }
+}
+
+.label {
+    font-size: 0.7rem;
+}

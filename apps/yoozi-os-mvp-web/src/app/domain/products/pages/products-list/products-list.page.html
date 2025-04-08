@@ -1,45 +1,61 @@
 <div class="header" nz-flex nzAlign="center" nzJustify="space-between" nzGap="middle">
   <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
-    <input type="text" nz-input placeholder="input search text" />
+    <input type="text" nz-input placeholder="Pesquisar produtos" />
   </nz-input-group>
   <ng-template #suffixIconButton>
     <button nz-button nzType="primary" nzSearch><nz-icon nzType="search" /></button>
   </ng-template>
-  <button nz-button nzType="primary" nzShape="round">
+  <button nz-button nzType="primary" nzShape="round" (click)="openAddProduct()">
     <i nz-icon nzType="plus"></i>
     Adicionar produto
   </button>
+  <nz-drawer
+    [nzBodyStyle]="{ overflow: 'auto' }"
+    [nzMaskClosable]="false"
+    [nzWidth]="720"
+    [nzVisible]="addProduct"
+    nzTitle="Cadastrar produto"
+    [nzFooter]="footerTpl"
+    (nzOnClose)="closeAddProduct()"
+  >
+    <ng-template #footerTpl>
+      <div style="float: right">
+        <button nz-button style="margin-right: 8px" (click)="closeAddProduct()">Cancelar</button>
+        <button nz-button nzType="primary" (click)="closeAddProduct()">Cadastrar</button>
+      </div>
+    </ng-template>
+  </nz-drawer>
 </div>
-<yz-virtual-scroll [itemSize]="100">
-  <nz-list nzItemLayout="vertical">
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-    <yz-product-item />
-  </nz-list>
-</yz-virtual-scroll>
+<!-- <yz-virtual-scroll itemSize="100"> -->
+<nz-list nzItemLayout="vertical">
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+  <yz-product-item />
+</nz-list>
+<!-- </yz-virtual-scroll> -->
