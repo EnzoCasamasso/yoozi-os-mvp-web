@@ -28,7 +28,7 @@ export const appRoutes: Route[] = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'products',
+        redirectTo: 'home',
       },
       {
         path: 'home',

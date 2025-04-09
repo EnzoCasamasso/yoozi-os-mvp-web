@@ -8,12 +8,28 @@
       <yz-button-card icon="form" label="Serviço" />
     </nz-flex>
   </div>
-  <nz-card nzTitle="Minha agenda" [nzExtra]="extraTemplate">
-    <nz-calendar [(ngModel)]="selectedValue" (nzSelectChange)="selectChange($event)" [nzFullscreen]="false"></nz-calendar>
-    <nz-alert nzMessage="Você selecionou a data: {{ selectedValue | date: 'dd/MM/yyyy' }}"></nz-alert>
-
-    <ng-template #extraTemplate>
-      <nz-icon nzType="calendar" nzTheme="outline"></nz-icon>
-    </ng-template>
-  </nz-card>
+  <div class="container-schedule">
+    <nz-card class="calendar" nzTitle="Minha agenda" [nzExtra]="extraTemplate">
+      <nz-calendar [(ngModel)]="selectedValue" (nzSelectChange)="selectChange($event)" [nzFullscreen]="false"></nz-calendar>
+      <nz-alert nzMessage="Você selecionou a data: {{ selectedValue | date: 'dd/MM/yyyy' }}"></nz-alert>
+      <ng-template #extraTemplate>
+        <nz-icon nzType="calendar" nzTheme="outline"></nz-icon>
+      </ng-template>
+    </nz-card>
+    <nz-card class="next-services" nzTitle="Proximos serviços">
+      <!-- <yz-virtual-scroll itemSize="100"> -->
+      <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+        <input type="text" nz-input placeholder="Pesquisar serviços" />
+      </nz-input-group>
+      <ng-template #suffixIconButton>
+        <button nz-button nzType="default" nzSearch><nz-icon nzType="search" /></button>
+      </ng-template>
+      <nz-flex nzVertical nzAlign="stretch" nzJustify="center">
+        <yz-service-card />
+        <yz-service-card />
+        <yz-service-card />
+      </nz-flex>
+      <!-- </yz-virtual-scroll> -->
+    </nz-card>
+  </div>
 </div>

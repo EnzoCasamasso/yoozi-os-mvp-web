@@ -1,3 +1,5 @@
+@use 'medias' as *;
+
 .container {
     display: flex;
     flex-direction: column;
@@ -7,16 +9,38 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        gap: 5px;
+        gap: 7px;
     }
 
-    nz-card {
-        width: 500px;
-    
-        nz-icon {
-            color: var(--primary-color);
-            font-size: 20px;
+    .container-schedule {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+
+        .calendar {
+            width: 700px;
+        
+            nz-icon {
+                color: var(--primary-color);
+                font-size: 20px;
+            }
+        }
+
+        .next-services {
+            width: 350px;
+        }
+
+        @include max-laptop {
+            flex-direction: column;
+            align-items: center;
+
+            .calendar,
+            .next-services {
+                width: 100%;
+                ::ng-deep(yz-service-card) {
+                    width: 100%;
+                }
+            }
         }
     }
 }
-

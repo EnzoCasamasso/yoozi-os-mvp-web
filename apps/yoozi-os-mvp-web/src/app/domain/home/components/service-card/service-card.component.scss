@@ -1,0 +1,19 @@
+@use 'medias' as *;
+
+.service-card {
+  width: 300px;
+  margin-top: 16px;
+
+  @include max-laptop {
+    width: 100%;
+  }
+}
+
+.button-remove {
+    .icon-remove {
+        color: var(--danger-color);
+    }
+    span {
+        color: var(--danger-color);
+    }
+}
