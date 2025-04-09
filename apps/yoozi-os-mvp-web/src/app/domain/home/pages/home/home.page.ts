@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { VirtualScrollComponent } from '@widget/components/virtual-scroll/virtual-scroll.component';
-import { ServiceCardComponent } from '@domain/home/components/service-card/service-card.component';
+import { ServiceCardComponent } from '@domain/schedule/components/service-card/service-card.component';
 
 import { NzTypographyComponent } from 'ng-zorro-antd/typography';
 import { ButtonCardComponent } from '@domain/home/components/button-card/button-card.component';

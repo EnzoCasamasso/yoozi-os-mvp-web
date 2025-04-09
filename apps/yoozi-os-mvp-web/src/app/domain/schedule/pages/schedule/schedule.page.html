@@ -1,0 +1,35 @@
+<div class="container">
+  <nz-flex nzJustify="space-between" nzAlign="center">
+    <nz-flex nzGap="5px">
+      <nz-icon class="icon-title" nzType="calendar" nzTheme="outline"></nz-icon>
+      <span class="title">Agenda</span>
+    </nz-flex>
+    <button nz-button nzType="default">
+      <nz-icon nzType="plus" nzTheme="outline"></nz-icon>
+      Agendar serviço
+    </button>
+  </nz-flex>
+  <div class="container-schedule">
+    <nz-card class="calendar" nzTitle="Calendário">
+      <nz-calendar [(ngModel)]="selectedValue" (nzSelectChange)="selectChange($event)" [nzFullscreen]="false"></nz-calendar>
+      <nz-alert nzMessage="Você selecionou a data: {{ selectedValue | date: 'dd/MM/yyyy' }}"></nz-alert>
+    </nz-card>
+    <nz-card class="next-services" nzTitle="Proximos serviços">
+      <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+        <input type="text" nz-input placeholder="Pesquisar serviços" />
+      </nz-input-group>
+      <ng-template #suffixIconButton>
+        <button nz-button nzType="default" nzSearch><nz-icon nzType="search" /></button>
+      </ng-template>
+      <div class="scrollable-service-list">
+        <nz-flex nzVertical nzAlign="stretch" nzJustify="center">
+          <yz-service-card />
+          <yz-service-card />
+          <yz-service-card />
+          <yz-service-card />
+          <yz-service-card />
+        </nz-flex>
+      </div>
+    </nz-card>
+  </div>
+</div>

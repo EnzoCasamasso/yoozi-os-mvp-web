@@ -1,12 +1,6 @@
-@use 'medias' as *;
-
 .service-card {
-  width: 300px;
+  width: 100%;
   margin-top: 16px;
-
-  @include max-laptop {
-    width: 100%;
-  }
 }
 
 .button-remove {

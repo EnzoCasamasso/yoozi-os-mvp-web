@@ -1,0 +1,48 @@
+@use 'medias' as *;
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    nz-flex {
+        .icon-title {
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+    }
+
+    .container-schedule {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+
+        .calendar {
+            width: 700px;
+            height: 600px;
+        }
+
+        .next-services {
+            width: 450px;
+            height: 600px;
+        }
+
+        .scrollable-service-list {
+            max-height: 450px; 
+            overflow-y: auto;
+            overflow-x: hidden;
+            margin-top: 1rem; 
+            padding-right: 8px;
+        }
+
+        @include max-laptop {
+            flex-direction: column;
+            align-items: center;
+
+            .calendar,
+            .next-services {
+                width: 100%;
+            }
+        }
+    }
+}

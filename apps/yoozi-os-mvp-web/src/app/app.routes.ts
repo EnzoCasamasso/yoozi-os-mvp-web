@@ -35,6 +35,10 @@ export const appRoutes: Route[] = [
         loadChildren: () => import('@domain/home/home.routes').then(m => m.HOME_ROUTES),
       },
       {
+        path: 'calendar',
+        loadChildren: () => import('@domain/schedule/schedule.routes').then(m => m.SCHEDULE_ROUTES),
+      },
+      {
         path: 'products',
         loadChildren: () => import('@domain/products/products.routes').then(m => m.PRODUCTS_ROUTES),
       },

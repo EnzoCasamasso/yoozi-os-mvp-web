@@ -1,10 +1,11 @@
 import { Component, Input, numberAttribute } from '@angular/core';
-import { CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CommonModule } from '@angular/common';
+import { NzListComponent } from 'ng-zorro-antd/list';
 
 @Component({
   selector: 'yz-virtual-scroll',
-  imports: [CommonModule, CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport],
+  imports: [CommonModule, ScrollingModule, NzListComponent],
   templateUrl: './virtual-scroll.component.html',
   styleUrl: './virtual-scroll.component.scss',
 })
