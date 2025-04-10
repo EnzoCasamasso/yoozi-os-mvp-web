@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { ServiceCardComponent } from '../service-card/service-card.component';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
@@ -17,6 +17,7 @@ import { SkeletonServiceCardComponent } from '../skeleton-service-card/skeleton-
 })
 export class NextServicesComponent implements OnInit {
   private loadingService = inject(LoadingService);
+  @Input({ required: true }) selectedDate!: Date;
   loading = this.loadingService.loading;
 
   ngOnInit(): void {

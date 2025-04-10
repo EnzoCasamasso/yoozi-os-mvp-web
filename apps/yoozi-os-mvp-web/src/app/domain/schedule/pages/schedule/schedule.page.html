@@ -12,8 +12,8 @@
   <div class="container-schedule">
     <nz-card class="calendar" nzTitle="Calendário">
       <nz-calendar [(ngModel)]="selectedValue" (nzSelectChange)="selectChange($event)" [nzFullscreen]="false"></nz-calendar>
-      <nz-alert nzMessage="Você selecionou a data: {{ selectedValue | date: 'dd/MM/yyyy' }}"></nz-alert>
+      <nz-alert nzMessage="{{ selectedValue | date: 'dd \'de\' MMMM \'de\' yyyy' : 'pt-BR' }}"></nz-alert>
     </nz-card>
-    <yz-next-services />
+    <yz-next-services [selectedDate]="selectedValue" />
   </div>
 </div>
