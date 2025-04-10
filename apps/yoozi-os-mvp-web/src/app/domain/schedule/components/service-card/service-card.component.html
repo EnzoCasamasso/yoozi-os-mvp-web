@@ -1,20 +1,20 @@
-<nz-card class="service-card" [nzActions]="[actionRemove, actionEdit]">
-  <nz-skeleton [nzActive]="true" [nzLoading]="loading" [nzAvatar]="{ size: 'large' }">
+<nz-card class="service-card" [nzActions]="[actionEdit, actionRemove]">
+  <nz-skeleton [nzActive]="true" [nzLoading]="false" [nzAvatar]="{ size: 'large' }">
     <nz-card-meta [nzAvatar]="avatarTemplate" nzTitle="Serviço" nzDescription="Serviço"></nz-card-meta>
   </nz-skeleton>
 </nz-card>
 <ng-template #avatarTemplate>
   <nz-avatar nzIcon="user" nzSize="large"></nz-avatar>
 </ng-template>
-<ng-template #actionRemove>
-  <nz-flex class="button-remove" nzJustify="center" nzAlign="center" nzGap="3px">
-    <nz-icon class="icon-remove" nzType="close" />
-    <span>Excluir</span>
-  </nz-flex>
-</ng-template>
 <ng-template #actionEdit>
   <nz-flex nzJustify="center" nzAlign="center" nzGap="3px">
     <nz-icon nzType="edit" />
     <span>Editar</span>
+  </nz-flex>
+</ng-template>
+<ng-template #actionRemove>
+  <nz-flex class="button-remove" nzJustify="center" nzAlign="center" nzGap="3px">
+    <nz-icon class="icon-remove" nzType="close" />
+    <span>Excluir</span>
   </nz-flex>
 </ng-template>

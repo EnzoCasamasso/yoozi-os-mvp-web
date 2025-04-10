@@ -14,22 +14,6 @@
       <nz-calendar [(ngModel)]="selectedValue" (nzSelectChange)="selectChange($event)" [nzFullscreen]="false"></nz-calendar>
       <nz-alert nzMessage="Você selecionou a data: {{ selectedValue | date: 'dd/MM/yyyy' }}"></nz-alert>
     </nz-card>
-    <nz-card class="next-services" nzTitle="Proximos serviços">
-      <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
-        <input type="text" nz-input placeholder="Pesquisar serviços" />
-      </nz-input-group>
-      <ng-template #suffixIconButton>
-        <button nz-button nzType="default" nzSearch><nz-icon nzType="search" /></button>
-      </ng-template>
-      <div class="scrollable-service-list">
-        <nz-flex nzVertical nzAlign="stretch" nzJustify="center">
-          <yz-service-card />
-          <yz-service-card />
-          <yz-service-card />
-          <yz-service-card />
-          <yz-service-card />
-        </nz-flex>
-      </div>
-    </nz-card>
+    <yz-next-services />
   </div>
 </div>

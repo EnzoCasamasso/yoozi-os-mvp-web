@@ -1,1 +1,23 @@
-<p>next-services works!</p>
+<nz-card class="next-services" nzTitle="Proximos serviços">
+  <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+    <input type="text" nz-input placeholder="Pesquisar serviços" [disabled]="loading()" />
+  </nz-input-group>
+  <ng-template #suffixIconButton>
+    <button nz-button nzType="default" nzSearch><nz-icon nzType="search" /></button>
+  </ng-template>
+  <div class="scrollable-service-list">
+    <nz-flex nzVertical nzAlign="stretch" nzJustify="center">
+      @if (loading()) {
+      <yz-skeleton-service-card />
+      <yz-skeleton-service-card />
+      <yz-skeleton-service-card />
+      } @else {
+      <yz-service-card />
+      <yz-service-card />
+      <yz-service-card />
+      <yz-service-card />
+      <yz-service-card />
+      }
+    </nz-flex>
+  </div>
+</nz-card>

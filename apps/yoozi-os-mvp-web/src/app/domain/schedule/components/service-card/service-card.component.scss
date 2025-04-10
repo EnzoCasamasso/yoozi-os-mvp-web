@@ -3,11 +3,6 @@
   margin-top: 16px;
 }
 
-.button-remove {
-    .icon-remove {
-        color: var(--danger-color);
-    }
-    span {
-        color: var(--danger-color);
-    }
+.button-remove:hover {
+    color: var(--danger-color);
 }

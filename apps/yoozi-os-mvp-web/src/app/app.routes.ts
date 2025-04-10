@@ -35,7 +35,7 @@ export const appRoutes: Route[] = [
         loadChildren: () => import('@domain/home/home.routes').then(m => m.HOME_ROUTES),
       },
       {
-        path: 'calendar',
+        path: 'schedule',
         loadChildren: () => import('@domain/schedule/schedule.routes').then(m => m.SCHEDULE_ROUTES),
       },
       {

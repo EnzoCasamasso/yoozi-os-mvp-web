@@ -1,0 +1,18 @@
+@use 'medias' as *;
+
+.next-services {
+    width: 450px;
+    height: 600px;
+
+    .scrollable-service-list {
+        max-height: 450px; 
+        overflow-y: auto;
+        overflow-x: hidden;
+        margin-top: 1rem; 
+        padding-right: 8px;
+    }
+
+    @include max-laptop {
+        width: 100%;
+    }
+}

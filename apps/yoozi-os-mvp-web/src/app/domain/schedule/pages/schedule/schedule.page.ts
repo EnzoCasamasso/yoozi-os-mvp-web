@@ -2,8 +2,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ServiceCardComponent } from '@domain/schedule/components/service-card/service-card.component';
-import { VirtualScrollComponent } from '@widget/components/virtual-scroll/virtual-scroll.component';
+
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCalendarModule } from 'ng-zorro-antd/calendar';
@@ -12,6 +11,7 @@ import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { NextServicesComponent } from '@domain/schedule/components/next-services/next-services.component';
 
 @Component({
   selector: 'yz-schedule',
@@ -23,12 +23,11 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
     NzInputModule,
     NzButtonModule,
     NzFlexModule,
-    ServiceCardComponent,
     NzCalendarModule,
     NzAlertModule,
     NzIconModule,
-    VirtualScrollComponent,
     ScrollingModule,
+    NextServicesComponent,
   ],
   templateUrl: './schedule.page.html',
   styleUrl: './schedule.page.scss',
