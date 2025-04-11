@@ -1,5 +1,5 @@
 <nz-card class="service-card" [nzActions]="[actionEdit, actionRemove]">
-  <nz-card-meta [nzAvatar]="avatarTemplate" nzTitle="Serviço" [nzDescription]="descriptionTemplate"></nz-card-meta>
+  <nz-card-meta [nzAvatar]="avatarTemplate" [nzTitle]="titleTemplate" [nzDescription]="descriptionTemplate"></nz-card-meta>
 </nz-card>
 <ng-template #avatarTemplate>
   <nz-flex nzVertical="true" nzAlign="center" nzJustify="center">
@@ -7,10 +7,19 @@
     <span>{{ date | date: 'MMMM': 'pt-BR' }}</span>
   </nz-flex>
 </ng-template>
+<ng-template #titleTemplate>
+  <span>Descrição serviço</span>
+</ng-template>
 <ng-template #descriptionTemplate>
-  <nz-flex nzAlign="center" nzGap="4px">
-    <nz-icon nzType="clock-circle" nzTheme="outline"></nz-icon>
-    <span>{{ date | date: 'HH:mm' }}</span>
+  <nz-flex nzVertical>
+    <nz-flex nzAlign="center" nzGap="4px">
+      <nz-icon nzType="user" nzTheme="outline"></nz-icon>
+      <span>NOME CLIENTE</span>
+    </nz-flex>
+    <nz-flex nzAlign="center" nzGap="4px">
+      <nz-icon nzType="clock-circle" nzTheme="outline"></nz-icon>
+      <span>{{ date | date: 'HH:mm' }}</span>
+    </nz-flex>
   </nz-flex>
 </ng-template>
 <ng-template #actionEdit>
