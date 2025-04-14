@@ -1,5 +1,5 @@
 <div class="container">
-  <nz-flex nzJustify="space-between" nzAlign="center">
+  <div class="header">
     <nz-flex nzGap="5px">
       <nz-icon class="icon-title" nzType="calendar" nzTheme="outline"></nz-icon>
       <span class="title">Agenda</span>
@@ -8,7 +8,7 @@
       <nz-icon nzType="plus" nzTheme="outline"></nz-icon>
       Agendar serviço
     </button>
-  </nz-flex>
+  </div>
   <div class="container-schedule">
     <nz-card class="calendar" nzTitle="Calendário">
       <nz-calendar [(ngModel)]="selectedValue" (nzSelectChange)="selectChange($event)" [nzFullscreen]="false"></nz-calendar>
