@@ -1,0 +1,12 @@
+<nz-card [nzTitle]="titleTemplate">
+  <yz-dynamic-form #scheduleForm [config]="formConfig" />
+  <nz-flex nzJustify="end">
+    <button nz-button nzType="primary" (click)="submit()">Agendar</button>
+  </nz-flex>
+</nz-card>
+<ng-template #titleTemplate>
+  <nz-flex nzGap="5px">
+    <nz-icon class="icon-title" nzType="calendar" nzTheme="outline"></nz-icon>
+    <span class="title">Agendar serviço</span>
+  </nz-flex>
+</ng-template>

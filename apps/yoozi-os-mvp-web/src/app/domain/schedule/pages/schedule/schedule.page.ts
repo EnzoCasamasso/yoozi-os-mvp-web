@@ -12,12 +12,14 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NextServicesComponent } from '@domain/schedule/components/next-services/next-services.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'yz-schedule',
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     NzTypographyModule,
     NzCardModule,
     NzInputModule,
@@ -33,7 +35,7 @@ import { NextServicesComponent } from '@domain/schedule/components/next-services
   styleUrl: './schedule.page.scss',
 })
 export class SchedulePage {
-  selectedValue = new Date('2025-04-08');
+  selectedValue = new Date('2025-04-14');
 
   selectChange(select: Date): void {
     console.log(`Select value: ${select}`);

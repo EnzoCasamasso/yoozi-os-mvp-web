@@ -1,0 +1,14 @@
+@use 'medias' as *;
+
+nz-card {
+    width: 1000px;
+
+    @include max-laptop {
+        width: 100%;
+    }
+}
+
+.icon-title {
+    color: var(--primary-color);
+    font-size: 20px;
+}
