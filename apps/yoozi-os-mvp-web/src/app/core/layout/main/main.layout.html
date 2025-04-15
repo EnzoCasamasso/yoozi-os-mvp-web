@@ -14,9 +14,11 @@
           <nz-icon nzType="home" />
           <span>Home</span>
         </li>
-        <li nz-menu-item routerLink="/schedule" nzMatchRouter>
-          <nz-icon nzType="calendar" />
-          <span>Agenda</span>
+        <li nz-submenu nzTitle="Agenda" nzIcon="calendar">
+          <ul>
+            <li nz-menu-item routerLink="/schedule" nzMatchRouter nzMatchRouterExact>Minha Agenda</li>
+            <li nz-menu-item routerLink="/schedule/create" nzMatchRouter nzMatchRouterExact>Agendar</li>
+          </ul>
         </li>
         <li nz-menu-item routerLink="/products" nzMatchRouter>
           <nz-icon nzType="product" />

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, viewChild } from '@angular/core';
+import { Component, inject, viewChild } from '@angular/core';
 import { Validators } from '@angular/forms';
 
 import { eDynamicField } from '@widget/components/dynamic-form/dynamic-field.enum';
@@ -10,14 +10,17 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzFlexModule } from 'ng-zorro-antd/flex';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'yz-create-schedule',
   imports: [CommonModule, NzCardModule, NzFlexModule, NzIconModule, DynamicFormComponent, NzButtonModule],
+  providers: [NzNotificationService],
   templateUrl: './create-schedule.page.html',
   styleUrl: './create-schedule.page.scss',
 })
 export class CreateSchedulePage {
+  private notificationService = inject(NzNotificationService);
   readonly scheduleForm = viewChild.required<DynamicFormComponent>('scheduleForm');
 
   formConfig: iDynamicFormConfig[] = [
@@ -79,6 +82,10 @@ export class CreateSchedulePage {
   ];
 
   submit(): void {
+    if (!this.scheduleForm().form.valid) {
+      this.notificationService.error('Campos inválidos', 'Preencha todos os campos obrigatórios');
+      return;
+    }
     const form = this.scheduleForm().form.value;
     console.log('Form', form);
   }
