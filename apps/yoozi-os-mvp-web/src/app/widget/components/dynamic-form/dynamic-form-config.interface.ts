@@ -38,7 +38,6 @@ export interface iDynamicFormConfig {
   label?: string;
   name: string;
   type: TypeControl;
-
   object?: object;
   disabled?: boolean;
   hideIfDisabled?: boolean;

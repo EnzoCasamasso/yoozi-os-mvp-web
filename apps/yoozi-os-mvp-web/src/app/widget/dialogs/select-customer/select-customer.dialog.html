@@ -1,0 +1,46 @@
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzWidth="700px"
+  (nzVisibleChange)="isVisibleChange.emit($event)"
+  nzTitle="Selecione o cliente"
+  [nzFooter]="modalFooter"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+>
+  <ng-container *nzModalContent>
+    <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+      <input type="text" nz-input placeholder="Pesquisar clientes" />
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+      <button nz-button nzType="default" nzSearch><nz-icon nzType="search" /></button>
+    </ng-template>
+    <nz-table #headerTable [nzData]="listOfData" [nzPageSize]="50" [nzScroll]="{ y: '400px' }">
+      <thead>
+        <tr>
+          <th>Clientes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of headerTable.data">
+          <td style="cursor: pointer" (click)="selectCustomer(customer)">
+            <ng-container *ngTemplateOutlet="clienteTemplate; context: { $implicit: customer }"></ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+
+    <ng-template #clienteTemplate let-data>
+      <div style="display: flex; align-items: center">
+        <nz-avatar nzIcon="user" style="margin-right: 12px"></nz-avatar>
+        <div>
+          <div><strong>{{ data.name }}</strong></div>
+          <span nz-typography nzType="secondary">{{ data.description }}</span>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+
+  <ng-template #modalFooter>
+    <button nz-button (click)="handleCancel()" nzType="default" nzDanger>Cancelar</button>
+  </ng-template>
+</nz-modal>

@@ -5,6 +5,7 @@ import { Validators } from '@angular/forms';
 import { eDynamicField } from '@widget/components/dynamic-form/dynamic-field.enum';
 import { iDynamicFormConfig } from '@widget/components/dynamic-form/dynamic-form-config.interface';
 import { DynamicFormComponent } from '@widget/components/dynamic-form/dynamic-form.component';
+import { SelectCustomerDialog } from '@widget/dialogs/select-customer/select-customer.dialog';
 
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card';
@@ -14,7 +15,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'yz-create-schedule',
-  imports: [CommonModule, NzCardModule, NzFlexModule, NzIconModule, DynamicFormComponent, NzButtonModule],
+  imports: [CommonModule, NzCardModule, NzFlexModule, NzIconModule, DynamicFormComponent, NzButtonModule, SelectCustomerDialog],
   providers: [NzNotificationService],
   templateUrl: './create-schedule.page.html',
   styleUrl: './create-schedule.page.scss',
@@ -22,6 +23,8 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 export class CreateSchedulePage {
   private notificationService = inject(NzNotificationService);
   readonly scheduleForm = viewChild.required<DynamicFormComponent>('scheduleForm');
+
+  openCustomerModal = false;
 
   formConfig: iDynamicFormConfig[] = [
     {
@@ -35,6 +38,9 @@ export class CreateSchedulePage {
       validations: [Validators.required],
       placeholder: 'Infome o cliente',
       size: 12,
+      onAddOnAfterClick: () => {
+        this.openCustomerModal = true;
+      },
     },
     {
       type: {
@@ -80,6 +86,11 @@ export class CreateSchedulePage {
       size: 12,
     },
   ];
+
+  selectCustomer(ev: any): void {
+    console.log('Cliente selecionado', ev);
+    this.scheduleForm().form.get('customer')?.setValue(ev.name);
+  }
 
   submit(): void {
     if (!this.scheduleForm().form.valid) {
