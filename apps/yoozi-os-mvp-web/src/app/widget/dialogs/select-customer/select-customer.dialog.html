@@ -8,12 +8,7 @@
   (nzOnOk)="handleOk()"
 >
   <ng-container *nzModalContent>
-    <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
-      <input type="text" nz-input placeholder="Pesquisar clientes" />
-    </nz-input-group>
-    <ng-template #suffixIconButton>
-      <button nz-button nzType="default" nzSearch><nz-icon nzType="search" /></button>
-    </ng-template>
+    <yz-search-bar placeholder="Pesquisar clientes" (queryChange)="searchCustomer($event)" />
     <nz-table #headerTable [nzData]="listOfData" [nzPageSize]="50" [nzScroll]="{ y: '400px' }">
       <thead>
         <tr>

@@ -56,9 +56,9 @@ export class CreateSchedulePage {
         field: eDynamicField.INPUT,
         typeField: 'text',
       },
-      name: 'descriptionService',
-      label: 'Descrição do serviço',
-      placeholder: 'Informe a descrição do serviço',
+      name: 'typeService',
+      label: 'Serviço',
+      placeholder: 'Informe o serviço',
       addOnAfterIcon: 'description',
       size: 12,
     },
@@ -80,15 +80,15 @@ export class CreateSchedulePage {
         field: eDynamicField.TEXTAREA,
         typeField: 'textarea',
       },
-      name: 'observation',
-      label: 'Observação',
-      placeholder: 'Observação do serviço',
+      name: 'description',
+      label: 'Descrição',
+      placeholder: 'Descrição do serviço',
       size: 12,
     },
   ];
 
   selectCustomer(ev: any): void {
-    console.log('Cliente selecionado', ev);
+    console.log('Selected customer', ev);
     this.scheduleForm().form.get('customer')?.setValue(ev.name);
   }
 

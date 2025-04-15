@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { SearchBarComponent } from '@widget/components/search-bar/search-bar.component';
 
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -20,7 +21,7 @@ interface ItemData {
 
 @Component({
   selector: 'yz-select-customer-dialog',
-  imports: [CommonModule, NzModalModule, NzIconModule, NzTableModule, NzFlexModule, NzInputModule, NzButtonModule, NzAvatarModule, NzTypographyModule],
+  imports: [CommonModule, NzModalModule, NzIconModule, NzTableModule, NzFlexModule, NzInputModule, NzButtonModule, NzAvatarModule, NzTypographyModule, SearchBarComponent],
   templateUrl: './select-customer.dialog.html',
   styleUrl: './select-customer.dialog.scss',
 })
@@ -44,6 +45,10 @@ export class SelectCustomerDialog implements OnInit {
       });
     }
     this.listOfData = data;
+  }
+
+  searchCustomer(query: string): void {
+    console.log('QueryCustomer:', query);
   }
 
   selectCustomer(customer: ItemData): void {
