@@ -6,6 +6,7 @@ import { eDynamicField } from '@widget/components/dynamic-form/dynamic-field.enu
 import { iDynamicFormConfig } from '@widget/components/dynamic-form/dynamic-form-config.interface';
 import { DynamicFormComponent } from '@widget/components/dynamic-form/dynamic-form.component';
 import { SelectCustomerDialog } from '@widget/dialogs/select-customer/select-customer.dialog';
+import { SelectServiceDialog } from '@widget/dialogs/select-service/select-service.dialog';
 
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card';
@@ -15,7 +16,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'yz-create-schedule',
-  imports: [CommonModule, NzCardModule, NzFlexModule, NzIconModule, DynamicFormComponent, NzButtonModule, SelectCustomerDialog],
+  imports: [CommonModule, NzCardModule, NzFlexModule, NzIconModule, DynamicFormComponent, NzButtonModule, SelectCustomerDialog, SelectServiceDialog],
   providers: [NzNotificationService],
   templateUrl: './create-schedule.page.html',
   styleUrl: './create-schedule.page.scss',
@@ -25,6 +26,7 @@ export class CreateSchedulePage {
   readonly scheduleForm = viewChild.required<DynamicFormComponent>('scheduleForm');
 
   openCustomerModal = false;
+  openServiceModal = false;
 
   formConfig: iDynamicFormConfig[] = [
     {
@@ -61,6 +63,9 @@ export class CreateSchedulePage {
       placeholder: 'Informe o serviço',
       addOnAfterIcon: 'description',
       size: 12,
+      onAddOnAfterClick: () => {
+        this.openServiceModal = true;
+      },
     },
     {
       type: {
@@ -90,6 +95,11 @@ export class CreateSchedulePage {
   selectCustomer(ev: any): void {
     console.log('Selected customer', ev);
     this.scheduleForm().form.get('customer')?.setValue(ev.name);
+  }
+
+  selectService(ev: any): void {
+    console.log('Selected customer', ev);
+    this.scheduleForm().form.get('typeService')?.setValue(ev.serviceName);
   }
 
   submit(): void {
